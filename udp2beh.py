@@ -412,7 +412,11 @@ class Primitive(object):
                 eventDetectors.append("\t\tevent_"+str(eventNo)+" = 0;")
                 eventDetectors.append("end")
 
-                outputAssignments.append("if (event_"+str(eventNo)+")")
+		        if eventNo == 0:
+			        el=""
+		        else:
+			        el="else "
+                outputAssignments.append(el+"if (event_"+str(eventNo)+")")
                 outputAssignments.append("\t"+self.outputs[0]+"=1'b"+next+";")
 
                 eventNo += 1
